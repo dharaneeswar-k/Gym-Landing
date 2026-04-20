@@ -1,3 +1,6 @@
+import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { MessageCircle, Zap } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 
 const CallToAction = () => {

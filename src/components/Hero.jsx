@@ -18,7 +18,7 @@ const Hero = () => {
                 className="absolute inset-0 z-0 scale-110"
             >
                 <div className="absolute inset-0 bg-gradient-to-b from-dark-900/60 via-black/80 to-dark-900 z-10" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.1)_0,transparent_50%)] z-10MIX_BLEND_MODE" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.1)_0,transparent_50%)] z-10" />
                 <img
                     src="/hero-bg.png"
                     alt="Luxury Gym Interior"
