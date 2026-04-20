@@ -45,39 +45,17 @@ const TrainerCard = ({ trainer, index, onOpen }) => {
         offset: ["start end", "end start"]
     });
 
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-
-    const rotateX = useTransform(y, [-100, 100], [10, -10]);
-    const rotateY = useTransform(x, [-100, 100], [-10, 10]);
-
-    const handleMouseMove = (e) => {
-        const rect = cardRef.current.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        x.set(e.clientX - centerX);
-        y.set(e.clientY - centerY);
-    };
-
-    const handleMouseLeave = () => {
-        x.set(0);
-        y.set(0);
-    };
-
     const yImage = useTransform(scrollYProgress, [0, 1], [-30, 30]);
 
     return (
         <motion.div
             onClick={() => onOpen(trainer)}
             ref={cardRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: index * 0.1, duration: 0.5, type: "spring", bounce: 0.4 }}
-            className="relative group rounded-3xl overflow-hidden bg-dark-900 border border-dark-700 h-[450px] sm:h-[550px] md:h-[500px] shadow-xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] hover:border-primary/30 transition-all cursor-pointer flex-shrink-0 w-[78vw] sm:w-[60vw] md:w-auto snap-start"
+            className="relative group rounded-3xl overflow-hidden bg-dark-900 border border-dark-700 h-[450px] sm:h-[550px] md:h-[500px] shadow-xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.6)] hover:border-white/20 transition-all cursor-pointer flex-shrink-0 w-[78vw] sm:w-[60vw] md:w-auto snap-start"
         >
             <div className={`absolute -inset-10 bg-gradient-to-tr ${trainer.color} to-transparent opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-700 z-0 pointer-events-none`} />
 

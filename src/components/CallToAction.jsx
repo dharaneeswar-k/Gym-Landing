@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { MessageCircle, Zap } from 'lucide-react';
-import MagneticButton from './MagneticButton';
 
 const CallToAction = () => {
     const { scrollYProgress } = useScroll();
@@ -47,12 +46,10 @@ const CallToAction = () => {
                     <div className="relative inline-block w-full sm:w-auto">
                         <div className="absolute inset-0 bg-primary rounded-xl animate-ping opacity-10 hidden sm:block delay-1000" />
 
-                        <MagneticButton className="w-full sm:w-auto">
-                            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="group flex w-full sm:w-auto items-center justify-center gap-3 bg-primary hover:bg-primaryDark text-white px-6 sm:px-10 py-5 sm:py-6 rounded-xl font-black uppercase tracking-widest text-sm sm:text-lg transition-transform transform active:scale-95 hover:scale-105 shadow-[0_0_40px_rgba(239,68,68,0.3)] relative z-10 border-b-4 border-red-800 hover:border-red-700">
-                                <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-                                Book A Gym Tour
-                            </a>
-                        </MagneticButton>
+                        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="group flex w-full sm:w-auto items-center justify-center gap-3 bg-primary hover:bg-primaryDark text-white px-6 sm:px-10 py-5 sm:py-6 rounded-xl font-black uppercase tracking-widest text-sm sm:text-lg transition-transform transform active:scale-95 hover:scale-105 shadow-[0_0_40px_rgba(239,68,68,0.3)] relative z-10 border-b-4 border-red-800 hover:border-red-700">
+                            <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
+                            Book A Gym Tour
+                        </a>
                     </div>
                 </motion.div>
             </div>

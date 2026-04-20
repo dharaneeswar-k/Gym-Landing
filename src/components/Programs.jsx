@@ -54,10 +54,10 @@ const Programs = () => {
     return (
         <section id="programs" className="py-16 sm:py-24 bg-black relative pb-24 sm:pb-32 overflow-hidden">
 
-            {/* Dynamic diagonal divider - Seamless transition from About */}
-            <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-0 -mt-px pointer-events-none">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-[60px] sm:h-[120px]">
-                    <path d="M0 0 L1200 0 L1200 120 L0 10 Z" className="fill-dark-900"></path>
+            {/* Dynamic diagonal divider */}
+            <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-0">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-[50px] sm:h-[100px] transform rotate-180">
+                    <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="fill-dark-900"></path>
                 </svg>
             </div>
 
@@ -107,13 +107,6 @@ const Programs = () => {
                         </motion.div>
                     ))}
                 </motion.div>
-            </div>
-
-            {/* Bottom Diagonal Divider - Transition to Results */}
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 mb-px pointer-events-none rotate-180">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-[60px] sm:h-[120px]">
-                    <path d="M0 0 L1200 0 L1200 120 L0 10 Z" className="fill-dark-900"></path>
-                </svg>
             </div>
         </section>
     );
