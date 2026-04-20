@@ -6,6 +6,10 @@
   .clip-path-slant {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   }
+
+  .clip-path-slant-top {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  }
 }
 
 html {
@@ -42,4 +46,66 @@ body {
 ::selection {
   background-color: #ef4444;
   color: #ffffff;
+}
+
+/* Million Dollar Transitions */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+  background-image: url('https://grain-y.com/assets/img/grain.png');
+  /* Fallback pattern if needed */
+  background-repeat: repeat;
+}
+
+@keyframes aura-float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-30px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.aura-orb {
+  animation: aura-float 20s infinite ease-in-out;
+}
+
+.aura-orb-reverse {
+  animation: aura-float 25s infinite ease-in-out reverse;
+}
+
+/* Hide scrollbar for clean look with Lenis */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

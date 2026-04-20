@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, MessageCircle, ChevronDown } from 'lucide-react';
+import MagneticButton from './MagneticButton';
 
 const Hero = () => {
     const { scrollY } = useScroll();
@@ -85,20 +86,24 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 1.2 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4 sm:px-0 w-full sm:w-auto"
                 >
-                    <a href="#pricing" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primaryDark text-white px-8 py-4 sm:py-5 rounded-lg font-black uppercase tracking-widest transition-transform transform shadow-[0_0_20px_rgba(239,68,68,0.4)] hover:shadow-[0_0_30px_rgba(239,68,68,0.6)] active:scale-95">
-                        Join Now
-                        <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ repeat: Infinity, duration: 1.5 }}
-                        >
-                            <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
-                        </motion.div>
-                    </a>
+                    <MagneticButton className="w-full sm:w-auto">
+                        <a href="#pricing" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primaryDark text-white px-8 py-4 sm:py-5 rounded-lg font-black uppercase tracking-widest transition-transform transform shadow-[0_0_20px_rgba(239,68,68,0.4)] hover:shadow-[0_0_30px_rgba(239,68,68,0.6)] active:scale-95">
+                            Join Now
+                            <motion.div
+                                animate={{ x: [0, 5, 0] }}
+                                transition={{ repeat: Infinity, duration: 1.5 }}
+                            >
+                                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </motion.div>
+                        </a>
+                    </MagneticButton>
 
-                    <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-dark-800/80 backdrop-blur text-white px-8 py-4 sm:py-5 rounded-lg font-bold uppercase tracking-wider border border-white/10 hover:border-primary hover:text-primary transition-all active:scale-95">
-                        <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-                        Chat With Us
-                    </a>
+                    <MagneticButton className="w-full sm:w-auto">
+                        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-dark-800/80 backdrop-blur text-white px-8 py-4 sm:py-5 rounded-lg font-bold uppercase tracking-wider border border-white/10 hover:border-primary hover:text-primary transition-all active:scale-95">
+                            <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
+                            Chat With Us
+                        </a>
+                    </MagneticButton>
                 </motion.div>
             </motion.div>
 

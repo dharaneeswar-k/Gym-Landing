@@ -47,10 +47,41 @@ const TrainerCard = ({ trainer, index, onOpen }) => {
 
     const yImage = useTransform(scrollYProgress, [0, 1], [-30, 30]);
 
+    // 3D Tilt Logic
+    const x = useSpring(0, { stiffness: 150, damping: 20 });
+    const y = useSpring(0, { stiffness: 150, damping: 20 });
+    const rotateX = useTransform(y, [-0.5, 0.5], [10, -10]);
+    const rotateY = useTransform(x, [-0.5, 0.5], [-10, 10]);
+
+    const handleMouseMove = (e) => {
+        if (!cardRef.current) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        const xPct = mouseX / width - 0.5;
+        const yPct = mouseY / height - 0.5;
+        x.set(xPct);
+        y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
     return (
         <motion.div
             onClick={() => onOpen(trainer)}
             ref={cardRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d"
+            }}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -59,7 +90,7 @@ const TrainerCard = ({ trainer, index, onOpen }) => {
         >
             <div className={`absolute -inset-10 bg-gradient-to-tr ${trainer.color} to-transparent opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-700 z-0 pointer-events-none`} />
 
-            <div className="absolute inset-0 overflow-hidden z-10">
+            <div className="absolute inset-0 overflow-hidden z-10" style={{ transform: "translateZ(50px)" }}>
                 <motion.img
                     style={{ y: yImage, scale: 1.15 }}
                     src={trainer.image}
@@ -69,7 +100,7 @@ const TrainerCard = ({ trainer, index, onOpen }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full p-5 sm:p-8 z-20 flex flex-col justify-end h-full pointer-events-none">
+            <div className="absolute bottom-0 left-0 w-full p-5 sm:p-8 z-20 flex flex-col justify-end h-full pointer-events-none" style={{ transform: "translateZ(80px)" }}>
                 <div className="transform sm:translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
                     <h4 className="text-2xl sm:text-4xl font-black uppercase text-white mb-1 drop-shadow-md">{trainer.name}</h4>
                     <p className="text-primary font-bold tracking-widest text-[10px] sm:text-xs uppercase mb-3 sm:mb-4">{trainer.role}</p>

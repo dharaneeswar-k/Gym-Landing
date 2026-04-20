@@ -52,14 +52,9 @@ const itemVariants = {
 
 const Programs = () => {
     return (
-        <section id="programs" className="py-16 sm:py-24 bg-black relative pb-24 sm:pb-32 overflow-hidden">
-
-            {/* Dynamic diagonal divider */}
-            <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-0">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-[50px] sm:h-[100px] transform rotate-180">
-                    <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="fill-dark-900"></path>
-                </svg>
-            </div>
+        <section id="programs" className="py-24 sm:py-32 bg-black relative overflow-hidden">
+            {/* Seamless Section Transition Slant */}
+            <div className="absolute top-0 left-0 w-full h-32 bg-dark-900 -translate-y-16 -skew-y-3 z-0" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-10 sm:pt-0">
 
