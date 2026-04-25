@@ -1,16 +1,16 @@
 import { Flame, Dumbbell, Zap, Activity } from 'lucide-react';
 
 const gymData = {
-    gymName: "PowerFit Gym",
-    tagline: "Transform Your Body in 90 Days",
+    gymName: "SHAPER 2.0",
+    tagline: "Pollachi’s Top-Rated Gym to Transform Your Body",
     phone: "+91 98765 43210",
     whatsapp: "919876543210",
-    email: "join@powerfit.in",
-    address: "Coimbatore, Tamil Nadu",
-    addressDetail: "45 Anna Salai, Coimbatore, Tamil Nadu 641001",
-    hoursWeekday: "Mon - Sat: 5:00 AM - 11:00 PM",
+    email: "join@shaper2.in",
+    address: "Pollachi, Tamil Nadu",
+    addressDetail: "95/2, Arutchelvar Dr. N. Mahalingam Rd, Pollachi, Tamil Nadu 642001",
+    hoursWeekday: "Mon - Sat: 5:00 AM - 9:00 PM",
     hoursWeekend: "Sunday: 6:00 AM - 12:00 PM",
-    mapsLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.2!2d76.9!3d11.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAwJzAwLjAiTiA3NsKwNTQnMDAuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin",
+    mapsLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.926224826781!2d77.00650057504033!3d10.662834489479076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba837bbc0a39d7b%3A0xef50a68fb7b395ae!2sSHAPER%202.0%20-%20UNISEX%20GYM%20POLLACHI!5e0!3m2!1sen!2sin!4v1777127017408!5m2!1sen!2sin",
 
     hero: {
         titleWords: ['FORGE', 'YOUR', 'ULTIMATE'],
