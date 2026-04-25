@@ -1,13 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Premium Gym Experience</title>
-  </head>
-  <body class="bg-black text-white antialiased">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TitanFit — Premium 3D Gym Experience</title>
+  <meta name="description"
+    content="TitanFit: Forge your ultimate physique with world-class equipment, elite coaching, and a premium 24/7 fitness environment. Join India's most immersive gym experience." />
+  <meta property="og:title" content="TitanFit — Premium 3D Gym Experience" />
+  <meta property="og:description"
+    content="Forge your ultimate physique. World-class equipment, elite coaching, premium environment." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#ef4444" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* Critical CSS for preloader - prevents FOUC */
+    body {
+      margin: 0;
+      background: #000;
+      overflow: hidden;
+    }
+
+    #root {
+      opacity: 0;
+      animation: fadeInRoot 0.6s ease forwards 0.1s;
+    }
+
+    @keyframes fadeInRoot {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white antialiased">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

@@ -5,8 +5,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true,
-    allowedHosts: [
-      'affirmatively-noncollinear-kristi.ngrok-free.dev'
-    ]
-  }
+    allowedHosts: true,
+  },
 })

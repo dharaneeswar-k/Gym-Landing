@@ -7,18 +7,32 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: '#ef4444', // red-500
-                primaryDark: '#dc2626', // red-600
-                accent: '#ff3131', // premium red-vibrant
+                primary: '#ff2a40',
+                primaryDark: '#cc1a2a',
                 dark: {
-                    900: '#121212',
-                    800: '#1e1e1e',
-                    700: '#2a2a2a',
+                    950: '#050505',
+                    900: '#111111',
+                    800: '#1a1a1a',
+                    700: '#262626',
+                    600: '#333333',
                 }
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
-            }
+                display: ['Outfit', 'sans-serif'],
+            },
+            animation: {
+                'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0px)' },
+                    '50%': { transform: 'translateY(-15px)' },
+                },
+            },
+            backdropBlur: {
+                xs: '2px',
+            },
         },
     },
     plugins: [],
