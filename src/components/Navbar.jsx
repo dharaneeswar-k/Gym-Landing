@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Dumbbell } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import gymData from '../data/gymData';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -49,7 +50,7 @@ const Navbar = () => {
                     <div className="flex items-center gap-3 cursor-pointer">
                         <Dumbbell className="text-primary h-7 w-7 sm:h-8 sm:w-8" />
                         <span className="text-white text-xl sm:text-2xl font-black uppercase tracking-wider font-display">
-                            Titan<span className="text-primary">Fit</span>
+                            {gymData.gymName}
                         </span>
                     </div>
 

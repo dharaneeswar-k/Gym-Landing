@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring } from 'framer-motion';
 import { Award, Star, Target, X, CheckCircle2, ChevronRight } from 'lucide-react';
+import gymData from '../data/gymData';
 
 const trainers = [
     {
@@ -10,18 +11,18 @@ const trainers = [
         achievements: "Mr. India 2021 | 10+ Years Exp",
         specialties: ["Powerlifting", "Hypertrophy", "Strength Coaching"],
         color: "from-primary",
-        bio: "Rahul revolutionized the hardcore lifting scene in India. He believes in heavy compound lifting paired with precise recovery protocols. He has personally overseen the transformation of elite athletes and competitive bodybuilders across the nation.",
+        bio: `Rahul revolutionized the hardcore lifting scene in India. He believes in heavy compound lifting paired with precise recovery protocols. He has personally overseen the transformation of elite athletes and competitive bodybuilders at ${gymData.gymName}.`,
         stats: { squat: "260kg", bench: "180kg", deadlift: "300kg" },
         certifications: ["ACE Master Trainer", "Olympic Weightlifting Level 2", "Precision Nutrition L1"]
     },
     {
         name: "Priya Sharma",
-        role: "CrossFit & Agility Specialist",
+        role: "Head CrossFit Coach",
         image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=600&auto=format&fit=crop",
         achievements: "National Gold Medalist | 6+ Years Exp",
         specialties: ["HIIT", "Athletic Conditioning", "Mobility"],
         color: "from-red-600",
-        bio: "Priya brings an explosive mix of gymnastics, endurance, and Olympic lifting to TitanFit. Her classes are legendary for pushing members past their perceived limits while keeping the energy unconditionally high and form strict.",
+        bio: `Priya brings an explosive mix of gymnastics, endurance, and Olympic lifting to ${gymData.gymName}. Her classes are legendary for pushing members past their perceived limits while keeping the energy unconditionally high and form strict.`,
         stats: { clean: "95kg", snatch: "75kg", engine: "Endless" },
         certifications: ["CrossFit Level 3", "ISSA Certified PT", "Mobility WOD Spec"]
     },
@@ -140,7 +141,7 @@ const Trainers = () => {
                     >
                         <div className="inline-flex items-center justify-center gap-2 mb-3">
                             <Star className="w-4 h-4 text-primary fill-primary" />
-                            <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-xs sm:text-sm mt-0.5 font-display">The Titans Engine</h2>
+                            <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-xs sm:text-sm mt-0.5 font-display">The {gymData.gymName.split(' ')[0]} Engine</h2>
                             <Star className="w-4 h-4 text-primary fill-primary" />
                         </div>
                         <h3 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase font-display metallic-text">Meet The Masters</h3>

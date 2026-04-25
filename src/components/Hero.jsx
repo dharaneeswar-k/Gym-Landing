@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, MessageCircle, ChevronDown } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import MagneticButton from './MagneticButton';
+import gymData from '../data/gymData';
 
 const Hero = () => {
     const sectionRef = useRef(null);
@@ -26,8 +27,6 @@ const Hero = () => {
             });
         });
     }, []);
-
-    const titleWords = ['FORGE', 'YOUR', 'ULTIMATE'];
 
     return (
         <section ref={sectionRef} className="relative h-[100dvh] flex items-center justify-center overflow-hidden w-full">
@@ -60,13 +59,13 @@ const Hero = () => {
                     className="inline-block px-5 py-1.5 mb-6 border border-white/10 rounded-full glass"
                 >
                     <span className="text-primary text-xs sm:text-sm font-bold tracking-widest uppercase">
-                        Premium Fitness Experience
+                        {gymData.tagline}
                     </span>
                 </motion.div>
 
                 {/* 3D Animated Title */}
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[1.1] mb-4 sm:mb-6 font-display perspective-1000">
-                    {titleWords.map((word, wordIdx) => (
+                    {gymData.hero.titleWords.map((word, wordIdx) => (
                         <span key={wordIdx} className="inline-block mr-3 sm:mr-4">
                             {word.split('').map((char, charIdx) => (
                                 <span
@@ -87,7 +86,7 @@ const Hero = () => {
                         className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary to-primaryDark mt-2 glow-text"
                         style={{ perspective: '500px' }}
                     >
-                        PHYSIQUE
+                        {gymData.hero.highlight}
                     </motion.span>
                 </h1>
 
@@ -98,7 +97,7 @@ const Hero = () => {
                     transition={{ duration: 1, delay: 2.5 }}
                     className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-10 max-w-xs sm:max-w-2xl mx-auto font-light leading-relaxed"
                 >
-                    TitanFit brings world-class equipment and elite coaching to your neighborhood. Book a tour today and experience the difference.
+                    {gymData.hero.subtitle}
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -125,7 +124,7 @@ const Hero = () => {
 
                     <MagneticButton className="w-full sm:w-auto">
                         <a
-                            href="https://wa.me/919876543210"
+                            href={`https://wa.me/${gymData.whatsapp}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-full sm:w-auto flex items-center justify-center gap-2 glass text-white px-8 py-4 sm:py-5 rounded-xl font-bold uppercase tracking-wider hover:border-primary hover:text-primary transition-all active:scale-95"

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Play } from 'lucide-react';
+import gymData from '../data/gymData';
 
 const Counter = ({ end, duration = 2.5, suffix = '' }) => {
     const [count, setCount] = useState(0);
@@ -89,8 +90,8 @@ const Transformations = () => {
                 >
                     <div className="p-8 sm:p-12 md:w-1/2 flex flex-col justify-center order-2 md:order-1">
                         <h4 className="text-2xl sm:text-3xl font-black uppercase mb-4 text-white font-display">Aditya's 120-Day Shred</h4>
-                        <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6 italic">
-                            "TitanFit broke me down and rebuilt me. The personalized diet protocol and the hardcore lifting environment was the exact shock my body needed. I'm in the best shape of my life."
+                        <p className="text-gray-300 italic mb-4 text-sm sm:text-base leading-relaxed">
+                            "{gymData.gymName} broke me down and rebuilt me. The personalized diet protocol and the hardcore lifting environment was the exact shock my body needed. I'm in the best shape of my life."
                         </p>
                         <ul className="space-y-3 mb-8 text-xs sm:text-sm text-gray-300 font-bold tracking-wide">
                             <li className="flex gap-3 items-center"><div className="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(239,68,68,0.8)]" /> Lost 22kg of pure fat</li>

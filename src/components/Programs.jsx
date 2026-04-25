@@ -1,45 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion, useSpring, useTransform } from 'framer-motion';
-import { Activity, Flame, Dumbbell, Zap, ArrowUpRight } from 'lucide-react';
-
-const programs = [
-    {
-        id: 1,
-        title: "Weight Loss",
-        description: "High-intensity metabolic conditioning designed to shred fat and build lean muscle effectively.",
-        icon: Flame,
-        color: "text-orange-500",
-        gradient: "from-orange-500 to-red-600",
-        glow: "rgba(249,115,22,0.3)",
-    },
-    {
-        id: 2,
-        title: "Muscle Gain",
-        description: "Hypertrophy-focused hardcore resistance training to pack on serious size and dense strength.",
-        icon: Dumbbell,
-        color: "text-primary",
-        gradient: "from-red-500 to-red-700",
-        glow: "rgba(239,68,68,0.3)",
-    },
-    {
-        id: 3,
-        title: "CrossFit HIIT",
-        description: "Functional diverse movements performed at high intensity to improve overall peak fitness.",
-        icon: Zap,
-        color: "text-yellow-400",
-        gradient: "from-yellow-400 to-orange-500",
-        glow: "rgba(250,204,21,0.3)",
-    },
-    {
-        id: 4,
-        title: "1-on-1 Training",
-        description: "Expert coaching tailored exactly to your body, nutrition planning, and daily accountability.",
-        icon: Activity,
-        color: "text-blue-400",
-        gradient: "from-blue-400 to-cyan-500",
-        glow: "rgba(96,165,250,0.3)",
-    }
-];
+import { ArrowUpRight } from 'lucide-react';
+import gymData from '../data/gymData';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -122,7 +84,7 @@ const ProgramCard = ({ program }) => {
                     <h4 className="text-2xl font-black uppercase text-white mb-4 font-display">{program.title}</h4>
                     <p className="text-white/80 text-sm leading-relaxed mb-6">{program.description}</p>
                     <a
-                        href="https://wa.me/919876543210"
+                        href={`https://wa.me/${gymData.whatsapp}?text=I%20want%20to%20get%20started%20with%20${program.title}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-6 py-3 bg-white text-black rounded-xl font-black uppercase text-xs tracking-widest hover:scale-105 active:scale-95 transition-transform"
@@ -161,8 +123,8 @@ const Programs = () => {
                     viewport={{ once: true, margin: "-50px" }}
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 perspective-2000"
                 >
-                    {programs.map((program) => (
-                        <ProgramCard key={program.id} program={program} />
+                    {gymData.services.map((program, index) => (
+                        <ProgramCard key={index} program={program} />
                     ))}
                 </motion.div>
             </div>

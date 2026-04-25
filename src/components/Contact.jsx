@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import gymData from '../data/gymData';
 
 const Contact = () => {
     return (
@@ -17,7 +18,7 @@ const Contact = () => {
                         className="space-y-4 sm:space-y-6 lg:col-span-1"
                     >
                         <h4 className="text-2xl sm:text-3xl tracking-wider uppercase font-black font-display">
-                            Titan<span className="text-primary neon-text">Fit</span>
+                            {gymData.gymName}
                         </h4>
                         <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
                             Forging champions since 2015. The premium destination for serious fitness enthusiasts. Don't wish for a good body, work for it.
@@ -59,24 +60,23 @@ const Contact = () => {
                             <div className="flex gap-3 sm:gap-4 items-start group">
                                 <MapPin className="text-primary w-5 h-5 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                                 <div>
-                                    <p className="text-xs sm:text-sm text-gray-300 font-medium">xxxx , xxxx</p>
-                                    <p className="text-xs sm:text-sm text-gray-300 font-medium">xxxx, Tamil Nadu 600000</p>
+                                    <p className="text-xs sm:text-sm text-gray-300 font-medium">{gymData.address}</p>
                                 </div>
                             </div>
                             <div className="flex gap-3 sm:gap-4 items-start group">
                                 <Clock className="text-primary w-5 h-5 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                                 <div>
-                                    <p className="text-xs sm:text-sm text-gray-300 font-medium">Mon - Sat: 5:00 AM - 11:00 PM</p>
-                                    <p className="text-xs sm:text-sm text-gray-300 font-medium">Sunday: 6:00 AM - 12:00 PM</p>
+                                    <p className="text-xs sm:text-sm text-gray-300 font-medium">{gymData.hoursWeekday}</p>
+                                    <p className="text-xs sm:text-sm text-gray-300 font-medium">{gymData.hoursWeekend}</p>
                                 </div>
                             </div>
                             <div className="flex gap-3 sm:gap-4 items-start group">
                                 <Phone className="text-primary w-5 h-5 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                                <p className="text-xs sm:text-sm text-gray-300 font-medium">+91 98765 43210</p>
+                                <p className="text-xs sm:text-sm text-gray-300 font-medium">{gymData.phone}</p>
                             </div>
                             <div className="flex gap-3 sm:gap-4 items-start group">
                                 <Mail className="text-primary w-5 h-5 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                                <p className="text-xs sm:text-sm text-gray-300 font-medium">join@titanfit.in</p>
+                                <p className="text-xs sm:text-sm text-gray-300 font-medium">{gymData.email}</p>
                             </div>
                         </div>
                     </motion.div>
@@ -129,19 +129,22 @@ const Contact = () => {
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="rounded-2xl overflow-hidden border border-dark-700 relative min-h-[250px] sm:min-h-[300px] group shadow-xl gradient-border"
+                        className="rounded-2xl overflow-hidden border border-dark-700 relative min-h-[300px] h-full shadow-xl gradient-border p-1 glass"
                     >
-                        <div className="absolute inset-0 glass flex flex-col items-center justify-center p-6 text-center group-hover:bg-dark-900/80 transition-colors">
-                            <MapPin className="w-10 h-10 sm:w-12 sm:h-12 text-dark-600 mb-4 group-hover:text-primary transition-colors group-hover:scale-110" />
-                            <p className="uppercase tracking-[0.2em] text-[10px] sm:text-xs font-black w-full text-gray-400">Google Maps Interactive Integration</p>
-                            <p className="text-xs pt-2 text-dark-500">45 Anna Salai, Chennai, Tamil Nadu</p>
-                        </div>
+                        <iframe
+                            src={gymData.mapsLink}
+                            className="w-full h-full rounded-xl"
+                            style={{ border: 0, minHeight: '300px' }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            title="Gym Location"
+                        />
                     </motion.div>
                 </div>
 
                 {/* Footer Bar */}
                 <div className="border-t border-dark-800/50 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
-                    <p className="text-gray-500 text-xs sm:text-sm font-medium">© {new Date().getFullYear()} TitanFit. All rights reserved.</p>
+                    <p className="text-gray-500 text-xs sm:text-sm font-medium">© {new Date().getFullYear()} {gymData.gymName}. All rights reserved.</p>
                     <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm text-gray-500 font-bold uppercase tracking-widest">
                         <a href="#" className="hover:text-primary transition-colors">Privacy</a>
                         <a href="#" className="hover:text-primary transition-colors">Terms</a>

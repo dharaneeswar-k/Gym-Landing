@@ -1,48 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useSpring, useTransform } from 'framer-motion';
 import { Check, Star } from 'lucide-react';
-
-const plans = [
-    {
-        name: "Classic Plan",
-        price: "1499 Rs.",
-        duration: "/ month",
-        description: "Perfect for getting started.",
-        features: [
-            "Full Gym Floor Access",
-            "Free Weights & Machines",
-            "Clean Locker Facilities",
-            "High-speed Free Wi-Fi"
-        ],
-        popular: false
-    },
-    {
-        name: "Titan Pro",
-        price: "3999 Rs.",
-        duration: "/ quarter",
-        description: "Our most popular membership.",
-        features: [
-            "Everything in Classic",
-            "2 Group Classes Weekly",
-            "1 Free PT Session / Month",
-            "Basic Diet Plan"
-        ],
-        popular: true
-    },
-    {
-        name: "Elite VIP",
-        price: "12999 Rs.",
-        duration: "/ year",
-        description: "For the serious achiever.",
-        features: [
-            "Everything in Titan Pro",
-            "Unlimited Group Classes",
-            "Monthly Body Composition",
-            "VIP Priority Equipment Access"
-        ],
-        popular: false
-    }
-];
+import gymData from '../data/gymData';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -84,8 +43,8 @@ const PricingCard = ({ plan }) => {
             onMouseLeave={handleMouseLeave}
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
             className={`relative flex-shrink-0 w-[78vw] snap-start md:w-auto glass p-6 sm:p-8 rounded-2xl border flex flex-col transition-all duration-300 ${plan.popular
-                    ? 'border-primary/50 shadow-[0_0_40px_rgba(239,68,68,0.15)] md:scale-105 z-10'
-                    : 'border-dark-700 hover:border-white/20'
+                ? 'border-primary/50 shadow-[0_0_40px_rgba(239,68,68,0.15)] md:scale-105 z-10'
+                : 'border-dark-700 hover:border-white/20'
                 }`}
         >
             {/* Holographic shimmer for popular */}
@@ -110,34 +69,36 @@ const PricingCard = ({ plan }) => {
                     <p className="text-gray-400 text-xs sm:text-sm mb-6 pb-6 border-b border-dark-700/50">{plan.description}</p>
                     <div className="flex flex-col items-center justify-center">
                         <span className="text-4xl sm:text-5xl font-black metallic-text font-display">{plan.price}</span>
-                        <span className="text-primary font-bold text-sm tracking-widest uppercase mt-1">{plan.duration}</span>
+                        {plan.duration && <span className="text-primary font-bold text-sm tracking-widest uppercase mt-1">{plan.duration}</span>}
                     </div>
                 </div>
 
-                <ul className="space-y-3 sm:space-y-4 mb-8 flex-grow">
-                    {plan.features.map((feature, i) => (
-                        <motion.li
-                            key={i}
-                            initial={{ opacity: 0, x: -10 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3 + (i * 0.1) }}
-                            className="flex items-start sm:items-center gap-3 text-gray-300 text-xs sm:text-sm font-medium"
-                        >
-                            <div className={`mt-0.5 sm:mt-0 rounded-full p-1 ${plan.popular ? 'bg-primary/20 text-primary shadow-[0_0_8px_rgba(239,68,68,0.4)]' : 'bg-dark-700 text-gray-400'}`}>
-                                <Check className="w-3 h-3 sm:w-4 sm:h-4 stroke-[3]" />
-                            </div>
-                            {feature}
-                        </motion.li>
-                    ))}
-                </ul>
+                {plan.features && (
+                    <ul className="space-y-3 sm:space-y-4 mb-8 flex-grow">
+                        {plan.features.map((feature, i) => (
+                            <motion.li
+                                key={i}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.3 + (i * 0.1) }}
+                                className="flex items-start sm:items-center gap-3 text-gray-300 text-xs sm:text-sm font-medium"
+                            >
+                                <div className={`mt-0.5 sm:mt-0 rounded-full p-1 ${plan.popular ? 'bg-primary/20 text-primary shadow-[0_0_8px_rgba(239,68,68,0.4)]' : 'bg-dark-700 text-gray-400'}`}>
+                                    <Check className="w-3 h-3 sm:w-4 sm:h-4 stroke-[3]" />
+                                </div>
+                                {feature}
+                            </motion.li>
+                        ))}
+                    </ul>
+                )}
 
                 <a
-                    href="https://wa.me/919876543210"
+                    href={`https://wa.me/${gymData.whatsapp}?text=I%20want%20to%20buy%20the%20${plan.name}%20plan`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`block w-full text-center py-4 rounded-xl uppercase font-black tracking-widest transition-all active:scale-95 hover:scale-[1.02] ${plan.popular
-                            ? 'bg-primary hover:bg-primaryDark text-white shadow-[0_4px_20px_rgba(239,68,68,0.4)] neon-box'
-                            : 'bg-dark-800 hover:bg-dark-700 text-white border border-dark-700 hover:border-gray-500'
+                        ? 'bg-primary hover:bg-primaryDark text-white shadow-[0_4px_20px_rgba(239,68,68,0.4)] neon-box'
+                        : 'bg-dark-800 hover:bg-dark-700 text-white border border-dark-700 hover:border-gray-500'
                         }`}
                 >
                     Choose Plan
@@ -160,8 +121,7 @@ const Pricing = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-xs sm:text-sm mb-3 font-display">Memberships</h2>
-                        <h3 className="text-3xl sm:text-5xl md:text-4xl lg:text-5xl font-black uppercase font-display metallic-text">Join The Titans</h3>
+                        <h3 className="text-3xl sm:text-5xl md:text-4xl lg:text-5xl font-black uppercase font-display metallic-text">Join The {gymData.gymName.split(' ')[0]}</h3>
                     </motion.div>
                 </div>
 
@@ -172,7 +132,7 @@ const Pricing = () => {
                     viewport={{ once: true, margin: "-50px" }}
                     className="flex md:grid md:grid-cols-3 gap-4 sm:gap-8 max-w-6xl mx-auto overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-10 md:pb-0 hide-scroll-mobile px-6 sm:px-0 perspective-2000"
                 >
-                    {plans.map((plan, idx) => (
+                    {gymData.pricing.map((plan, idx) => (
                         <PricingCard key={idx} plan={plan} />
                     ))}
                 </motion.div>

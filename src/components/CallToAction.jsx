@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { MessageCircle, Zap } from 'lucide-react';
 import MagneticButton from './MagneticButton';
+import gymData from '../data/gymData';
 
 const CallToAction = () => {
     const { scrollYProgress } = useScroll();
@@ -46,7 +47,7 @@ const CallToAction = () => {
                     <div className="relative inline-block w-full sm:w-auto mt-4">
                         <MagneticButton className="w-full sm:w-auto">
                             <a
-                                href="https://wa.me/919876543210"
+                                href={`https://wa.me/${gymData.whatsapp}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group flex w-full sm:w-auto items-center justify-center gap-3 bg-white text-dark-950 px-8 py-5 sm:py-6 rounded-xl font-black uppercase tracking-widest text-sm sm:text-lg transition-all transform active:scale-95 hover:bg-gray-200"

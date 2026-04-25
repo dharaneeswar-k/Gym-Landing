@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import gymData from '../data/gymData';
 
 const FloatingWhatsApp = () => {
     return (
@@ -11,7 +12,7 @@ const FloatingWhatsApp = () => {
             className="fixed bottom-6 right-6 z-50"
         >
             <a
-                href="https://wa.me/919876543210"
+                href={`https://wa.me/${gymData.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:scale-110 hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] transition-transform group"

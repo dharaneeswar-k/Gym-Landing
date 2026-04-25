@@ -1,36 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
-
-const testimonials = [
-    {
-        id: 1,
-        name: "Vikram S.",
-        role: "Member for 2 years",
-        content: "The best gym in the city hands down. The equipment is top-notch and the trainers actually care. I dropped 20kg and gained confidence.",
-        rating: 5
-    },
-    {
-        id: 2,
-        name: "Sneha R.",
-        role: "Member for 6 months",
-        content: "Love the CrossFit sessions! The vibe is energetic and everyone pushes you to be your best. Finally found a gym I want to go to every day.",
-        rating: 5
-    },
-    {
-        id: 3,
-        name: "Arjun K.",
-        role: "Powerlifter",
-        content: "If you lift heavy, this is your place. Plenty of squat racks, deadlift platforms, and the environment is pure motivation.",
-        rating: 5
-    }
-];
+import gymData from '../data/gymData';
 
 const Testimonials = () => {
     const [current, setCurrent] = useState(0);
 
-    const next = useCallback(() => setCurrent((c) => (c + 1) % testimonials.length), []);
-    const prev = useCallback(() => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length), []);
+    const next = useCallback(() => setCurrent((c) => (c + 1) % gymData.testimonials.length), []);
+    const prev = useCallback(() => setCurrent((c) => (c - 1 + gymData.testimonials.length) % gymData.testimonials.length), []);
 
     // Auto-play
     useEffect(() => {
@@ -67,16 +44,16 @@ const Testimonials = () => {
                             style={{ transformStyle: 'preserve-3d' }}
                         >
                             <div className="flex justify-center gap-1 mb-4 sm:mb-6">
-                                {[...Array(testimonials[current].rating)].map((_, i) => (
+                                {[...Array(gymData.testimonials[current].rating)].map((_, i) => (
                                     <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-primary text-primary drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
                                 ))}
                             </div>
                             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 italic mb-6 sm:mb-8 tracking-wide font-light leading-relaxed">
-                                "{testimonials[current].content}"
+                                "{gymData.testimonials[current].content}"
                             </p>
                             <div>
-                                <h4 className="font-black text-white uppercase tracking-widest text-sm sm:text-base font-display">{testimonials[current].name}</h4>
-                                <p className="text-[10px] sm:text-xs text-primary font-bold uppercase tracking-widest mt-1 neon-text">{testimonials[current].role}</p>
+                                <h4 className="font-black text-white uppercase tracking-widest text-sm sm:text-base font-display">{gymData.testimonials[current].name}</h4>
+                                <p className="text-[10px] sm:text-xs text-primary font-bold uppercase tracking-widest mt-1 neon-text">{gymData.testimonials[current].role}</p>
                             </div>
                         </motion.div>
                     </AnimatePresence>
@@ -84,13 +61,13 @@ const Testimonials = () => {
 
                 {/* Nav Dots */}
                 <div className="flex justify-center gap-2 mt-6 mb-4">
-                    {testimonials.map((_, i) => (
+                    {gymData.testimonials.map((_, i) => (
                         <button
                             key={i}
                             onClick={() => setCurrent(i)}
                             className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current
-                                    ? 'bg-primary w-6 shadow-[0_0_10px_rgba(239,68,68,0.6)]'
-                                    : 'bg-dark-600 hover:bg-dark-500'
+                                ? 'bg-primary w-6 shadow-[0_0_10px_rgba(239,68,68,0.6)]'
+                                : 'bg-dark-600 hover:bg-dark-500'
                                 }`}
                         />
                     ))}

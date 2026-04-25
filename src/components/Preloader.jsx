@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import gymData from '../data/gymData';
 import { Dumbbell } from 'lucide-react';
 
 const Preloader = ({ children }) => {
@@ -79,7 +80,7 @@ const Preloader = ({ children }) => {
                             transition={{ delay: 0.2 }}
                             className="text-3xl font-black uppercase tracking-wider mb-2 font-display relative z-10"
                         >
-                            Titan<span className="text-primary">Fit</span>
+                            {gymData.gymName}
                         </motion.h1>
 
                         <motion.p

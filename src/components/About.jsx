@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useSpring, useTransform } from 'framer-motion';
 import { Target, Users, Medal, Clock, ShieldCheck, Flame } from 'lucide-react';
+import gymData from '../data/gymData';
 
 const stats = [
     { icon: Users, value: '850+', label: 'Active Members' },
@@ -56,7 +57,7 @@ const About = () => {
                         className="space-y-6 sm:space-y-8"
                     >
                         <div>
-                            <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-xs sm:text-sm mb-3 font-display">About TitanFit</h2>
+                            <h2 className="text-primary font-bold uppercase tracking-[0.2em] text-xs sm:text-sm mb-3 font-display">About {gymData.gymName}</h2>
                             <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-tight font-display">
                                 Not Just A Gym. <br />
                                 <span className="metallic-text">It's A Lifestyle.</span>
@@ -64,7 +65,7 @@ const About = () => {
                         </div>
 
                         <p className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed text-justify sm:text-left">
-                            Founded by industry veterans in 2015, TitanFit provides the ultimate 24/7 environment for individuals serious about their physical transformation. We combine old-school work ethic, hardcore iron, and modern sports science with extreme precision.
+                            Founded by industry veterans in 2015, {gymData.gymName} provides the ultimate 24/7 environment for individuals serious about their physical transformation. We combine old-school work ethic, hardcore iron, and modern sports science with extreme precision.
                         </p>
 
                         <div className="grid grid-cols-2 gap-4 sm:gap-8 pt-4">
